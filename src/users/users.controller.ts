@@ -31,18 +31,18 @@ export class UsersController {
     @Post() // POST /users
     create(
         @Body(ValidationPipe)
-        user: CreateUserDto,
+        createUserDto: CreateUserDto,
     ) {
-        return this.usersService.create(user);
+        return this.usersService.create(createUserDto);
     }
 
     @Patch(':id') // PATCH /users/:id
     update(
         @Param('id', ParseIntPipe) id: number,
         @Body(ValidationPipe)
-        userUpdate: UpdateUserDto,
+        updateUserDto: UpdateUserDto,
     ) {
-        return this.usersService.update(id, userUpdate);
+        return this.usersService.update(id, updateUserDto);
     }
 
     @Delete(':id') // DELETE /users/:id
