@@ -1,6 +1,6 @@
 # NestJS API (Prisma + PostgreSQL)
 
-Backend API built with NestJS 11 and TypeScript. The project currently includes a `users` module with DTO validation and a Prisma setup targeting PostgreSQL.
+Backend API built with NestJS 11, TypeScript and Prisma with PostgreSQL.
 
 ## Tech Stack
 
@@ -9,27 +9,7 @@ Backend API built with NestJS 11 and TypeScript. The project currently includes 
 - TypeScript 5
 - Prisma 7
 - PostgreSQL
-- Jest + Supertest
 - ESLint + Prettier
-
-## Project Structure
-
-```
-.
-|- prisma/
-|  |- migrations/
-|  `- schema.prisma
-|- src/
-|  |- app.*
-|  |- database/
-|  |- generated/prisma/
-|  `- users/
-|- test/
-|  |- app.e2e-spec.ts
-|  `- jest-e2e.json
-|- prisma.config.ts
-`- package.json
-```
 
 ## Requirements
 
@@ -114,12 +94,7 @@ Payload fields for create/update:
 - Generated Prisma client: `src/generated/prisma`
 - Main bootstrap: `src/main.ts`
 
-## Troubleshooting
+## Logging
 
-If Prisma IntelliSense/hover docs do not show in VS Code:
-
-1. Install/enable the official `Prisma` extension.
-2. Confirm file language mode is `Prisma`.
-3. Run `Prisma: Restart Language Server`.
-4. Reload VS Code window.
-5. Validate schema with `pnpm prisma validate`.
+- By default the application writes log files to a `logs/` folder located at the project root.
+- The code uses `process.cwd()` to locate the project root so the log folder is created where the process is started.
